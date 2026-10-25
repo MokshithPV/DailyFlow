@@ -4,17 +4,14 @@ plugins {
     kotlin("android") version "2.2.21" apply false
 }
 
+dependencies {
+    testImplementation(kotlin("test"))
+}
 
-subprojects {
-    dependencies {
-        testImplementation(kotlin("test"))
-    }
+kotlin {
+    jvmToolchain(17)
+}
 
-    kotlin {
-        jvmToolchain(17)
-    }
-
-    tasks.test {
-        useJUnitPlatform()
-    }
+tasks.test {
+    useJUnitPlatform()
 }
