@@ -1,24 +1,28 @@
 plugins {
-    kotlin("jvm") version "2.4.10"
-    application
+    kotlin("jvm") version "2.2.21"
+    id("com.android.application") version "9.0.0" apply false
+    kotlin("android") version "2.2.21" apply false
 }
 
 repositories {
     mavenCentral()
 }
 
-dependencies {
-    testImplementation(kotlin("test"))
-}
+subprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
 
-kotlin {
-    jvmToolchain(17)
-}
+    dependencies {
+        testImplementation(kotlin("test"))
+    }
 
-application {
-    mainClass = "com.dailyflow.MainKt"
-}
+    kotlin {
+        jvmToolchain(17)
+    }
 
-tasks.test {
-    useJUnitPlatform()
+    tasks.test {
+        useJUnitPlatform()
+    }
 }
