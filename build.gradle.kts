@@ -4,16 +4,8 @@ plugins {
     kotlin("android") version "2.2.21" apply false
 }
 
-repositories {
-    mavenCentral()
-}
 
 subprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-
     dependencies {
         testImplementation(kotlin("test"))
     }
